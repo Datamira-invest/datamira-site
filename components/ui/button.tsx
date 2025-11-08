@@ -1,8 +1,12 @@
 import * as React from 'react';
-import clsx from 'clsx';
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'default' | 'outline' | 'ghost';
+  className?: string;
+}
+
+function cx(...classes: (string | undefined)[]) {
+  return classes.filter(Boolean).join(' ');
 }
 
 export function Button({ variant='default', className, ...props }: Props) {
@@ -12,5 +16,5 @@ export function Button({ variant='default', className, ...props }: Props) {
     outline: 'border border-slate-300 bg-white text-slate-900 hover:bg-slate-50',
     ghost: 'text-slate-900 hover:opacity-80'
   }[variant];
-  return <button className={clsx(base, styles, className)} {...props} />;
+  return <button className={cx(base, styles, className)} {...props} />;
 }

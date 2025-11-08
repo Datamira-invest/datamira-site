@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root { --bg: #F7FAFC; --text: #0B1220; }
+body { background: var(--bg); color: var(--text); }
+a { text-underline-offset: 3px; }
